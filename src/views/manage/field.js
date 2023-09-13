@@ -1,0 +1,222 @@
+export const baseList = [{
+	field: "xh",
+	filedName: "学号",
+	attrName: "xh"
+}, {
+	field: "photo",
+	filedName: "学生照片",
+	attrName: "photo"
+}, {
+	field: "area",
+	filedName: "国家地区",
+	attrName: "area"
+}, {
+	field: "former_name",
+	filedName: "曾用名",
+	attrName: "formerName"
+}, {
+	field: "real_name",
+	filedName: "姓名",
+	attrName: "realName"
+}, {
+	field: "name_pinyin",
+	filedName: "姓名拼音",
+	attrName: "namePinyin"
+}, {
+	field: "gender",
+	filedName: "性别",
+	attrName: "gender"
+}, {
+	field: "birthday",
+	filedName: "出生日期",
+	attrName: "birthday"
+}, {
+	field: "id_card_type",
+	filedName: "证件类型",
+	attrName: "idCardType"
+}, {
+	field: "id_card",
+	filedName: "证件号",
+	attrName: "idCard"
+}, {
+	field: "nation",
+	filedName: "民族",
+	attrName: "nation"
+}, {
+	field: "native_place",
+	filedName: "籍贯",
+	attrName: "nativePlace"
+}, {
+	field: "political_outlook",
+	filedName: "政治面貌",
+	attrName: "politicalOutlook"
+}, {
+	field: "marital_status",
+	filedName: "婚姻状况",
+	attrName: "maritalStatus"
+}];
+
+export const schoolList = [{
+	field: "class",
+	filedName: "班级",
+	attrName: "class"
+}, {
+	field: "class_no",
+	filedName: "班级编号",
+	attrName: "classNo"
+}, {
+	field: "remark",
+	filedName: "学生备注",
+	attrName: "remark"
+}, {
+	field: "pycc",
+	filedName: "培养层次",
+	attrName: "pycc"
+}, {
+	field: "sfzj",
+	filedName: "是否在籍",
+	attrName: "sfzj"
+}, {
+	field: "sfzx",
+	filedName: "是否在校",
+	attrName: "sfzx"
+}, {
+	field: "xj_status",
+	filedName: "学籍状态",
+	attrName: "xjStatus"
+}, {
+	field: "edu_system",
+	filedName: "学制",
+	attrName: "eduSystem"
+}, {
+	field: "campus",
+	filedName: "校区",
+	attrName: "campus"
+}, {
+	field: "institute",
+	filedName: "学院",
+	attrName: "institute"
+}, {
+	field: "institute_no",
+	filedName: "学院编号",
+	attrName: "instituteNo"
+}, {
+	field: "major",
+	filedName: "专业",
+	attrName: "major"
+}, {
+	field: "major_direction",
+	filedName: "专业方向",
+	attrName: "majorDirection"
+}, {
+	field: "grade",
+	filedName: "年级",
+	attrName: "grade"
+}, {
+	field: "degree_certificate_number",
+	filedName: "学位证号",
+	attrName: "degreeCertificateNumber"
+}, {
+	field: "degree_award_date",
+	filedName: "学位授予时间",
+	attrName: "degreeAwardDate"
+}, {
+	field: "degree_awarded_or_not",
+	filedName: "是否授予学位",
+	attrName: "degreeAwardedOrNot"
+}, {
+	field: "graduate",
+	filedName: "授予学位",
+	attrName: "graduate"
+},{
+	field: "conclusion_of_graduation",
+	filedName: "毕结业结论",
+	attrName: "conclusionOfGraduation"
+}, {
+	field: "completion_time",
+	filedName: "毕结业时间",
+	attrName: "completionTime"
+}, {
+	field: "completion_certificate_number",
+	filedName: "毕结业证书号",
+	attrName: "completionCertificateNumber"
+}, {
+	field: "expected_graduation_date",
+	filedName: "预计毕业年月",
+	attrName: "expectedGraduationDate"
+}, {
+	field: "finish_certificate_number",
+	filedName: "结业证书号",
+	attrName: "finishCertificateNumber"
+}, {
+	field: "examination_score",
+	filedName: "高考成绩",
+	attrName: "examinationScore"
+}, {
+	field: "examinee_number",
+	filedName: "考生号",
+	attrName: "examineeNumber"
+}, {
+	field: "school_year",
+	filedName: "入学年级",
+	attrName: "schoolYear"
+}, {
+	field: "school_date",
+	filedName: "入学日期",
+	attrName: "schoolDate"
+}, {
+	field: "enrollment_quarter",
+	filedName: "招生季度",
+	attrName: "enrollmentQuarter"
+}, {
+	field: "special_student_type",
+	filedName: "特殊学生类型",
+	attrName: "specialStudentType"
+}, {
+	field: "languages_type",
+	filedName: "外语种类",
+	attrName: "languagesType"
+}, {
+	field: "student_category",
+	filedName: "学生类别",
+	attrName: "studentCategory"
+}]
+
+
+export const otherList = [{
+	field: "postal_code",
+	filedName: "邮政编码",
+	attrName: "postalCode"
+}, {
+	field: "mobile",
+	filedName: "电话",
+	attrName: "mobile"
+}, {
+	field: "blood_type",
+	filedName: "血型",
+	attrName: "bloodType"
+}, {
+	field: "mail_address",
+	filedName: "通讯地址",
+	attrName: "mailAddress"
+}, {
+	field: "email",
+	filedName: "电子信箱",
+	attrName: "email"
+}, {
+	field: "train_arrival",
+	filedName: "火车到站",
+	attrName: "trainArrival"
+}, {
+	field: "bank_account",
+	filedName: "银行账号",
+	attrName: "bankAccount"
+}, {
+	field: "dormitory_number",
+	filedName: "宿舍号",
+	attrName: "dormitoryNumber"
+}, {
+	field: "status",
+	filedName: "状态",
+	attrName: "status"
+}]

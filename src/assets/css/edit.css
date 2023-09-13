@@ -1,0 +1,108 @@
+.el-card {
+	position: relative;
+}
+
+.edit-card--file {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/* background-color: red; */
+}
+
+.edit-card--file .aui-card-header {
+	width: 100%;
+	padding: 10px 20px;
+	border-bottom: 1px solid #ebeef5;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	/* justify-content: space-between; */
+	/* margin-bottom: 20px; */
+	/* border-bottom: 1px solid; */
+}
+
+.edit-card--file .aui-tab-header {
+	position: absolute;
+	top: 15px;
+	right: 20px;
+}
+
+.edit-card--file .aui-card-header-between {
+	width: 100%;
+	justify-content: space-between;
+}
+
+.edit-card--file .aui-card-header-end {
+	justify-content: flex-end;
+}
+
+.edit-card--file .aui-card-stauts-tag {
+	margin-left: 20px;
+}
+
+.edit-card--file .el-card__header {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.edit-card--file .aui-card-button {
+	margin-left: auto;
+}
+
+.edit-card--file .edit-card__body {
+	padding: 20px;
+	width: 100%;
+	height: calc(100% - 53px);
+	/* height: calc(100vh - 50px - 40px - 30px - 40px - 53px); */
+	overflow-x: hidden;
+	overflow-y: auto;
+	/* border-top: 1px solid red; */
+}
+
+
+.edit-card--file .aui-tab-body {
+	padding: 10px 20px;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.edit-card--file .aui-tab-body .demo-tabs {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+}
+
+.edit-card--file .aui-tab-body .demo-tabs .demo-tabs-item {
+	width: 100%;
+	height: calc(100vh - 50px - 40px - 30px - 40px - 40px - 15px);
+	/* background-color: red; */
+	overflow-y: auto;
+	padding: 10px;
+}
+
+.edit-card-page .el-form-item {
+	align-items: center;
+}
+
+.edit-card-page .el-date-editor.el-input,
+.edit-card-page .el-select,
+.edit-card-page .el-input {
+	width: 220px !important;
+}
+
+.edit-card-page .el-input-number {
+	width: 220px !important;
+}
+
+.edit-card-page .info-h3 {
+	margin-top: 0;
+}

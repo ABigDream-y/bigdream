@@ -1,0 +1,143 @@
+<template>
+  <div class="mod-programme__casecourse">
+    <el-form :inline="true" ref="searchForm" :model="dataForm" @keyup.enter="getDataList()">
+      <!-- <el-form-item>
+				<el-input v-model="dataForm.groupId" placeholder="课组" clearable></el-input>
+			</el-form-item> -->
+      <el-form-item prop="courseNo">
+        <el-input v-model="dataForm.courseNo" placeholder="课程编号" clearable></el-input>
+      </el-form-item>
+      <el-form-item prop="courseName">
+        <el-input v-model="dataForm.courseName" placeholder="课程名称" clearable></el-input>
+      </el-form-item>
+      <el-form-item prop="mainCourse">
+        <el-select v-model="dataForm.mainCourse" placeholder="是否主干课程">
+          <el-option :value="1" label="是"></el-option>
+          <el-option :value="0" label="否"></el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item>
+        <el-button @click="getDataList()">{{ $t("query") }}</el-button>
+      </el-form-item>
+      <el-form-item>
+        <el-button @click="queryResetHandle()">重置</el-button>
+      </el-form-item>
+      <el-form-item v-if="hasPermission('programme:casecourse:export')">
+        <el-button type="info" @click="exportHandle()">{{ $t("export") }}</el-button>
+      </el-form-item>
+      <el-form-item v-if="hasPermission('programme:casecourse:save')">
+        <el-button type="primary" @click="toAddOrUpdate()">{{ $t("add") }}</el-button>
+      </el-form-item>
+      <el-form-item v-if="hasPermission('programme:casecourse:delete')">
+        <el-button type="danger" @click="deleteHandle()">{{ $t("deleteBatch") }}</el-button>
+      </el-form-item>
+    </el-form>
+    <el-table v-loading="dataListLoading" :data="dataList" border @selection-change="dataListSelectionChangeHandle" style="width: 100%">
+      <el-table-column type="selection" header-align="center" align="center" width="50"></el-table-column>
+      <!-- <el-table-column prop="groupId" label="课组" header-align="center" align="center"></el-table-column> -->
+      <el-table-column prop="courseNo" label="课程编号" header-align="center" align="center" width="100"></el-table-column>
+      <el-table-column prop="courseName" label="课程名称" header-align="center" align="center" width="200"></el-table-column>
+      <el-table-column prop="institute" label="开课院系" header-align="center" align="center" width="200"></el-table-column>
+      <!-- <el-table-column prop="instituteNo" label="开课院系编号" header-align="center" align="center" width="200"></el-table-column> -->
+      <el-table-column prop="hours" label="学时" header-align="center" align="center" width="200"></el-table-column>
+      <el-table-column prop="credit" label="学分" header-align="center" align="center" width="200"></el-table-column>
+      <el-table-column prop="planGrade" label="计划学年" header-align="center" align="center" width="200">
+        <template v-slot="scope">
+          {{ getDictLabel("grade", scope.row.planGrade) }}
+        </template>
+      </el-table-column>
+      <el-table-column prop="planTerm" label="计划学期" header-align="center" align="center" width="100">
+        <template v-slot="scope">
+          {{ getDictLabel("term", scope.row.planTerm) }}
+        </template>
+      </el-table-column>
+      <el-table-column prop="courseCategory" label="课程类别" header-align="center" align="center" width="100">
+        <template v-slot="scope">
+          {{ getDictLabel("course_category", scope.row.courseCategory) }}
+        </template>
+      </el-table-column>
+      <el-table-column prop="courseType" label="课程分类" header-align="center" align="center" width="100">
+        <template v-slot="scope">
+          {{ getDictLabel("course_type", scope.row.courseType) }}
+        </template>
+      </el-table-column>
+      <el-table-column prop="examType" label="考试类型" header-align="center" align="center" width="100">
+        <template v-slot="scope">
+          {{ getDictLabel("exam_type", scope.row.examType) }}
+        </template>
+      </el-table-column>
+      <el-table-column prop="mainCourse" label="是否主干课程" header-align="center" align="center" width="200">
+        <template v-slot="scope">
+          {{ getDictLabel("yesOrNo", scope.row.mainCourse) }}
+        </template>
+      </el-table-column>
+      <el-table-column :label="$t('handle')" fixed="right" header-align="center" align="center" width="150">
+        <template v-slot="scope">
+          <el-button v-if="hasPermission('programme:casecourse:update')" type="text" size="small" @click="toAddOrUpdate(scope.row)">{{ $t("update") }}</el-button>
+          <el-button v-if="hasPermission('programme:casecourse:delete')" type="text" size="small" @click="deleteHandle(scope.row.id)">{{ $t("delete") }}</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <el-pagination :current-page="page" :page-sizes="[10, 20, 50, 100]" :page-size="limit" :total="total" layout="total, sizes, prev, pager, next, jumper" @size-change="pageSizeChangeHandle" @current-change="pageCurrentChangeHandle"> </el-pagination>
+  </div>
+</template>
+
+<script lang="ts">
+import useView from "@/hooks/useView";
+import { defineComponent, reactive, toRefs } from "vue";
+import { IObject } from "@/types/interface";
+export default defineComponent({
+  setup() {
+    const state = reactive({
+      createdIsNeed: false,
+      getDataListURL: "/programme/casecourse/page",
+      getDataListIsPage: true,
+      exportURL: "/programme/casecourse/export",
+      deleteURL: "/programme/casecourse",
+      routeName: "/programme-casecourse-edit",
+      routePath: "/programme/casecourse-edit",
+      routeTitle: "培养方案课组课程列表",
+      deleteIsBatch: true,
+      dataForm: {
+        caseId: "",
+        groupId: "",
+        courseNo: "",
+        courseName: "",
+        mainCourse: ""
+      } as IObject
+    });
+    return { ...useView(state), ...toRefs(state) };
+  },
+  watch: {},
+  activated() {
+    console.log("roter", this.$route);
+    let query = this.$route.query;
+    if (query && query.gid) {
+      this.dataForm.groupId = query.id || "";
+    }
+    this.query();
+  },
+  methods: {
+    init() {
+      this.loading = false;
+      let id = this.$route.query.id || "";
+      if (id && id != "0") {
+        this.dataForm.groupId = id;
+      }
+      this.$nextTick(() => {
+        if (this.dataForm.groupId) {
+          this.query();
+        }
+      });
+    },
+    toAddOrUpdate(data?: IObject) {
+      let query = {} as IObject;
+      if (data) {
+        query.id = data.id;
+      }
+      query.gid = this.dataForm.groupId;
+      this.editWidthParamsHandle(query);
+    }
+  }
+});
+</script>
